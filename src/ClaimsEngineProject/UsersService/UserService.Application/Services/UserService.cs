@@ -4,6 +4,7 @@ using UserService.Domain.Entities;
 using UserService.Infrastructure.Interfaces;
 using System;
 using System.Threading.Tasks;
+using UserService.Application.Interfaces;
 
 namespace UserService.Application.Services
 {

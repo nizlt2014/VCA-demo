@@ -1,4 +1,4 @@
-using FluentValidation;
+
 using Microsoft.OpenApi.Models;
 using UserService.Application.Mapping; // Add this line if UserProfile is in this namespace
 // Add the correct namespace for AddInfrastructure extension method
