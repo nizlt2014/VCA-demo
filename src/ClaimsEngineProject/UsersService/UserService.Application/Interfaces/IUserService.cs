@@ -1,7 +1,11 @@
 using UserService.Domain.Entities;
-
-public interface IUserService
+using System.Threading.Tasks;
+using UserService.Application.DTOs;
+namespace UserService.Application.Interfaces
 {
-    Task<int> InsertUserAsync(User user);
-    Task<User?> GetByIdAsync(int userId);
+    public interface IUserService
+    {
+        public Task<int> InsertUserAsync(CreateUserDto user);
+        public Task<GetUserDto?> GetByIdAsync(int userId);
+    }
 }

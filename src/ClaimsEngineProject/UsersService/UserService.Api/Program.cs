@@ -1,8 +1,28 @@
+using FluentValidation;
+using Microsoft.OpenApi.Models;
+using UserService.Application.Mapping; // Add this line if UserProfile is in this namespace
+// Add the correct namespace for AddInfrastructure extension method
+using UserService.Infrastructure; // Replace with actual namespace
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+
+// Register AutoMapper
+builder.Services.AddAutoMapper(typeof(UserProfile).Assembly);
+
+// Register FluentValidation
+//builder.Services.AddValidatorsFromAssemblyContaining<CreateClaimDtoValidator>();
+
+// Register application services
+builder.Services.AddInfrastructure(builder.Configuration);
+
+// Register repository (infra)
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
