@@ -19,6 +19,7 @@ builder.Services.AddAutoMapper(typeof(UserProfile).Assembly);
 //builder.Services.AddValidatorsFromAssemblyContaining<CreateClaimDtoValidator>();
 
 // Register application services
+
 builder.Services.AddInfrastructure(builder.Configuration);
 
 // Register repository (infra)

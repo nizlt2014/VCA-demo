@@ -2,12 +2,13 @@ using Microsoft.Data.SqlClient;
 using Dapper;
 using UserService.Domain.Entities;
 using UserService.Infrastructure.Interfaces;
+using Microsoft.Extensions.Configuration;
 
 namespace UserService.Infrastructure.Repositories;
 
-public class UserRepository(string connectionString) : IUserRepository
+public class UserRepository(IConfiguration configuration) : IUserRepository
 {
-    private readonly string _connectionString = connectionString;
+    private readonly string _connectionString = configuration.GetConnectionString("Default");
 
     public async Task<int> InsertUserAsync(User user)
     {
